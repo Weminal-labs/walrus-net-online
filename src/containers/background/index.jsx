@@ -3,6 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Battery from "../../components/shared/Battery";
 import { Icon, Image } from "../../utils/general";
 import "./back.scss";
+import {
+  ConnectButton,
+  useConnectWallet,
+  useWallets,
+} from "@mysten/dapp-kit";
 
 export const Background = () => {
   const wall = useSelector((state) => state.wallpaper);
@@ -74,6 +79,8 @@ export const LockScreen = (props) => {
   const [passType, setType] = useState(1);
   const [forgot, setForget] = useState(false);
   const dispatch = useDispatch();
+  const wallets = useWallets();
+  const { mutate: connect } = useConnectWallet();
 
   const userName = useSelector((state) => state.setting.person.name);
 
@@ -145,9 +152,31 @@ export const LockScreen = (props) => {
         <div className="mt-2 text-2xl font-medium text-gray-200">
           {userName}
         </div>
-        <div className="flex items-center mt-6 signInBtn" onClick={proceed}>
+        {/* <div className="flex items-center mt-6 signInBtn" onClick={proceed}>
           Sign in
+        </div> */}
+        <div>
+          {wallets.map((wallet) => {
+            if (wallet.name !== "Sui Wallet") return null;
+            return (
+              <ConnectButton
+                className="flex items-center mt-6 signInBtn"
+                onClick={() => {
+                  connect(
+                    { wallet },
+                    {
+                      onSuccess: () => {
+                        console.log("connected")
+                        proceed();
+                      },
+                    }
+                  );
+                }}
+              />
+            );
+          })}
         </div>
+
         {/*   <input type={passType?"text":"password"} value={password} onChange={action}
               data-action="inpass" onKeyDown={action2} placeholder={passType?"Password":"PIN"}/>
           <Icon className="-ml-6 handcr" fafa="faArrowRight" width={14}
