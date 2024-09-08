@@ -22,16 +22,19 @@ export const EdgeMenu = () => {
       "Spotify",
     "https://bluelab.blueedge.me": "BlueLab",
     "https://othello.blueedge.me": "Othello",
+    "https://algorand-racetrack.openedu101.com": "\nAlgorand",
   };
 
   const favicons = {
     "https://andrewstech.me":
       "https://avatars.githubusercontent.com/u/45342431",
+    "https://algorand-racetrack.openedu101.com":
+      "https://algorandtechnologies.com/assets/media-kit/logos/logo-marks/png/algorand_logo_mark_black.png",
   };
 
   const isValidURL = (string) => {
     var res = string.match(
-      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
     );
     return res !== null;
   };
