@@ -300,6 +300,19 @@ const apps = [
     type: "app",
     action: "DISCORD",
   },
+  // {
+  //   name: "Algorand",
+  //   icon: "algorand",
+  //   type: "app",
+  //   action: "EXTERNAL",
+  //   payload: "https://algorand-racetrack.openedu101.com"
+  // },
+  {
+    name: "Algorand",
+    icon: "algorand",
+    type: "app",
+    action: "ALGORAND",
+  },
 ];
 
 for (let i = 0; i < installed.length; i++) {
