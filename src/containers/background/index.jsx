@@ -3,11 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Battery from "../../components/shared/Battery";
 import { Icon, Image } from "../../utils/general";
 import "./back.scss";
-import {
-  ConnectButton,
-  useConnectWallet,
-  useWallets,
-} from "@mysten/dapp-kit";
+import { ConnectButton, useConnectWallet, useWallets } from "@mysten/dapp-kit";
 
 export const Background = () => {
   const wall = useSelector((state) => state.wallpaper);
@@ -166,7 +162,7 @@ export const LockScreen = (props) => {
                     { wallet },
                     {
                       onSuccess: () => {
-                        console.log("connected")
+                        console.log("connected");
                         proceed();
                       },
                     }

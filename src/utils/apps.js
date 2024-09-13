@@ -313,6 +313,12 @@ const apps = [
     type: "app",
     action: "ALGORAND",
   },
+  {
+    name: "Walrus Blob Storage",
+    icon: "walrus",
+    type: "app",
+    action: "WALRUS_BLOB_STORAGE",
+  },
 ];
 
 for (let i = 0; i < installed.length; i++) {
