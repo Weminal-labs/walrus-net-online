@@ -317,7 +317,7 @@ const apps = [
     name: "Walnet",
     icon: "walrus",
     type: "app",
-    action: "WALRUS_BLOB_STORAGE",
+    action: "WALNET",
   },
 ];
 
