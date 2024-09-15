@@ -29,6 +29,7 @@ body {
   --base_bg-rgb: 243 243 243;
 
   --fakeMica: #f3f3f3 radial-gradient(#eff4f9 75%, #f3f3f3 100%) no-repeat fixed;
+  --walnet-app: rgba(245, 245, 245, 0.5) radial-gradient(rgba(240, 240, 240, 0.5) 25%, rgba(241, 241, 241, 0.5) 100%) no-repeat fixed;
 }
 
 body[data-theme="dark"] {
@@ -48,6 +49,7 @@ body[data-theme="dark"] {
   --base_bg-rgb: 32 32 32;
 
   --fakeMica: #202020 radial-gradient(#1a1f35 25%, #202020 100%) no-repeat fixed;
+  --walnet-app: rgba(32, 32, 32, 0.5) radial-gradient(rgba(26, 31, 53, 0.5) 25%, rgba(32, 32, 32, 0.5) 100%) no-repeat fixed;
 }
 
 .edgeBrowser {

@@ -314,7 +314,7 @@ const apps = [
     action: "ALGORAND",
   },
   {
-    name: "Walrus Blob Storage",
+    name: "Walnet",
     icon: "walrus",
     type: "app",
     action: "WALRUS_BLOB_STORAGE",

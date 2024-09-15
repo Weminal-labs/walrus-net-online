@@ -1,18 +1,19 @@
-.settingsApp {
+.walnetApp {
   --bg: #f3f3f3;
 
-  background: var(--fakeMica);
+  background: var(--walnet-app);
+  backdrop-filter: blur(12px);
   color: rgb(var(--txt_clr-rgb));
   min-width: 720px;
 }
 
 @supports (container-type: inline-size) {
-  .settingsApp {
+  .walnetApp {
     min-width: 360px;
   }
 }
 
-.settingsApp .restWindow {
+.walnetApp .restWindow {
   font-size: 14px;
   height: 100%;
 
@@ -20,8 +21,8 @@
   container-name: appWrapper;
 
   * {
-    margin: 0;
-    padding: 0;
+    // margin: 0;
+    // padding: 0;
     box-sizing: border-box;
   }
 
@@ -111,6 +112,10 @@
         img {
           margin: 0 10.5px 0 7px;
         }
+
+        .content-item-traction {
+          margin-left: 10px;
+        }
       }
 
       .marker {
@@ -131,13 +136,57 @@
         }
       }
     }
+
+    .bottom-btn-upload {
+      // width: 100%;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      background: rgb(255 255 255 / 10%);
+      border-radius: 4px;
+      border: 1px solid rgb(0 0 0 / 10%);
+      position: relative;
+      min-height: unset;
+      height: unset;
+      color: var(--txt_clr-rgb);
+      justify-content: center;
+      margin: 18px 12px 12px 12px;
+      // padding: 0 16px;
+
+      &:hover {
+        background: rgb(255 255 255 / 25%);
+      }
+    }
   }
 
   main {
     margin-left: 300px;
+    // margin-right: 24px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    padding: 0 24px;
+
+    .title-preview {
+      margin-bottom: 16px;
+    }
+
+    .image-preview {
+      box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    }
+
+    .input-epochs {
+      background: rgb(255 255 255 / 10%);
+      color: var(--txt_clr-rgb);
+      padding: 8px 20px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+
+      &:hover {
+        background: rgb(255 255 255 / 20%);
+      }
+    }
 
     .sysTop {
       width: min(100%, 1000px);
@@ -364,7 +413,7 @@
     }
 
     .tilesCont {
-      padding: 0 24px 44px;
+      // padding: 0 24px 44px;
       overflow-y: overlay;
       display: flex;
       flex-direction: column;
@@ -378,75 +427,28 @@
       }
 
       .tile {
-        width: min(100%, 1000px);
-        min-height: 67px;
+        // width: min(100%, 1000px);
+        width: 100%;
+        height: 30px;
         display: flex;
         align-items: center;
-        background: rgb(255 255 255 / 67%);
+        background: rgb(255 255 255 / 20%) !important;
         border-radius: 4px;
-        padding: 7px 42px 7px 0;
+        // padding: 7px 42px 7px 0;
         border: 1px solid rgb(0 0 0 / 10%);
         position: relative;
 
         &:hover {
-          background: rgb(255 255 255 / 33%);
-        }
-
-        &::after {
-          content: ">";
-          transform: scaleY(2);
-          position: absolute;
-          right: 16px;
-        }
-
-        .tile_content {
-          flex-grow: 1;
-        }
-
-        .tile_desc {
-          color: rgb(var(--txt_clr-rgb) / 66%);
-          font-size: 12.33px;
-        }
-
-        &.square {
-          width: 220px;
-          height: 220px;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          padding: 0;
-          font-weight: 500;
-
-          .settingsIcon {
-            font-size: 48px;
-          }
+          background: rgb(255 255 255 / 30%) !important;
         }
 
         &.thin-blue {
           min-height: unset;
           height: unset;
-          color: var(--clrPrm);
+          color: var(--txt_clr-rgb);
           justify-content: center;
           margin: 4px 0;
         }
-
-        &.thin-blue::after,
-        &.square::after {
-          display: none;
-        }
-      }
-
-      .subHeading {
-        font-weight: 500;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        flex-shrink: 0;
-      }
-
-      .spacer {
-        padding: 8px;
       }
     }
   }
@@ -479,6 +481,7 @@
 
     main {
       margin-left: 0;
+      margin-top: 16px;
     }
 
     nav {
@@ -494,7 +497,7 @@
   }
 }
 
-body[data-theme="dark"] .settingsApp {
+body[data-theme="dark"] .walnetApp {
   --bg: #202020;
 
   .restWindow {
