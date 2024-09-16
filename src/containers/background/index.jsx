@@ -116,7 +116,7 @@ export const LockScreen = (props) => {
       className={"lockscreen " + (props.dir == -1 ? "slowfadein" : "")}
       data-unlock={unlocked}
       style={{
-        backgroundImage: `url(${`img/wallpaper/lock.jpg`})`,
+        backgroundImage: `url(${`img/wallpaper/walrus-lock.png`})`,
       }}
       onClick={action}
       data-action="splash"
@@ -141,8 +141,9 @@ export const LockScreen = (props) => {
       <div className="fadeinScreen" data-faded={!lock} data-unlock={unlocked}>
         <Image
           className="rounded-full overflow-hidden"
-          src="img/asset/prof.jpg"
-          w={200}
+          src="img/asset/walrus.png"
+          w={150}
+          h={150}
           ext
         />
         <div className="mt-2 text-2xl font-medium text-gray-200">

@@ -25,8 +25,8 @@ export const DungeonMove = () => {
         name={wnapp.name}
       />
       <iframe
-        src="https://dmove.app/"
-        title="Dungeon Move"
+        src="https://walrusgame.walrus.site/"
+        title="Walrus Snake Game"
         width="100%"
         height="100%"
         style={{ border: "none" }}

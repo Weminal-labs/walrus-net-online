@@ -301,10 +301,10 @@ const apps = [
     action: "DISCORD",
   },
   {
-    name: "Dungeon Move",
+    name: "Walrus Game",
     icon: "dungeon",
     type: "app",
-    action: "DUNGEON",
+    action: "WALRUS",
   },
   {
     name: "Walnet",
