@@ -3,7 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Battery from "../../components/shared/Battery";
 import { Icon, Image } from "../../utils/general";
 import "./back.scss";
-import { ConnectButton, useConnectWallet, useWallets } from "@mysten/dapp-kit";
+import {
+  ConnectButton,
+  useConnectWallet,
+  useCurrentAccount,
+  useDisconnectWallet,
+  useWallets,
+} from "@mysten/dapp-kit";
 
 export const Background = () => {
   const wall = useSelector((state) => state.wallpaper);
@@ -77,6 +83,8 @@ export const LockScreen = (props) => {
   const dispatch = useDispatch();
   const wallets = useWallets();
   const { mutate: connect } = useConnectWallet();
+  const { mutate: disconnect } = useDisconnectWallet();
+  const account = useCurrentAccount();
 
   const userName = useSelector((state) => state.setting.person.name);
 
@@ -152,6 +160,18 @@ export const LockScreen = (props) => {
         {/* <div className="flex items-center mt-6 signInBtn" onClick={proceed}>
           Sign in
         </div> */}
+        <p className="flex items-center mt-6 text-white">
+          You must install
+          <a
+            rel="noreferrer"
+            target="_blank"
+            className="p-1"
+            href="https://chromewebstore.google.com/detail/sui-wallet/opcgpfmipidbgpenhmajoajpbobppdil"
+          >
+            Sui Wallet
+          </a>
+          first
+        </p>
         <div>
           {wallets.map((wallet) => {
             if (wallet.name !== "Sui Wallet") return null;
@@ -173,6 +193,14 @@ export const LockScreen = (props) => {
             );
           })}
         </div>
+        {account && (
+          <button
+            className="flex items-center mt-6 signInBtn"
+            onClick={() => disconnect()}
+          >
+            Disconnect
+          </button>
+        )}
 
         {/*   <input type={passType?"text":"password"} value={password} onChange={action}
               data-action="inpass" onKeyDown={action2} placeholder={passType?"Password":"PIN"}/>
