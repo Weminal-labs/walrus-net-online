@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { ToolBar } from "../../../utils/general";
 import "./assets/fileexpo.scss";
 
-export const Algorand = () => {
-  const wnapp = useSelector((state) => state.apps.algorand);
+export const DungeonMove = () => {
+  const wnapp = useSelector((state) => state.apps.dungeon);
 
   return (
     <div
@@ -25,8 +25,8 @@ export const Algorand = () => {
         name={wnapp.name}
       />
       <iframe
-        src="https://algorand-racetrack.openedu101.com"
-        title="Algorand"
+        src="https://dmove.app/"
+        title="Dungeon Move"
         width="100%"
         height="100%"
         style={{ border: "none" }}

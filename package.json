@@ -1,7 +1,7 @@
 {
-  "name": "win11react",
+  "name": "Walnet",
   "description": "Walnet",
-  "repository": "https://github.com/blueedgetechno/win11React",
+  "repository": "https://github.com/Weminal-labs/walrus-net-online",
   "version": "0.1.1",
   "private": true,
   "dependencies": {
@@ -73,6 +73,7 @@
     ]
   },
   "devDependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@tauri-apps/cli": "^1.6.0",
     "@vitejs/plugin-react": "2.0.0",
     "autoprefixer": "^10.4.20",

@@ -300,18 +300,11 @@ const apps = [
     type: "app",
     action: "DISCORD",
   },
-  // {
-  //   name: "Algorand",
-  //   icon: "algorand",
-  //   type: "app",
-  //   action: "EXTERNAL",
-  //   payload: "https://algorand-racetrack.openedu101.com"
-  // },
   {
-    name: "Algorand",
-    icon: "algorand",
+    name: "Dungeon Move",
+    icon: "dungeon",
     type: "app",
-    action: "ALGORAND",
+    action: "DUNGEON",
   },
   {
     name: "Walnet",

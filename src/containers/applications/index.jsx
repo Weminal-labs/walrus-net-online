@@ -18,7 +18,7 @@ export * from "./apps/store";
 export * from "./apps/taskmanager";
 export * from "./apps/terminal";
 export * from "./apps/whiteboard";
-export * from "./apps/algorand";
+export * from "./apps/dungeon";
 export * from "./apps/walnet";
 
 export const ScreenPreview = () => {

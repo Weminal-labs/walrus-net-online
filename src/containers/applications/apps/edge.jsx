@@ -22,14 +22,17 @@ export const EdgeMenu = () => {
       "Spotify",
     "https://bluelab.blueedge.me": "BlueLab",
     "https://othello.blueedge.me": "Othello",
-    "https://algorand-racetrack.openedu101.com": "\nAlgorand",
+    "https://dmove.app": "\nDungeon",
+    "https://suiscan.xyz/testnet/home": "\nSuiScan",
   };
 
   const favicons = {
     "https://andrewstech.me":
       "https://avatars.githubusercontent.com/u/45342431",
-    "https://algorand-racetrack.openedu101.com":
-      "https://algorandtechnologies.com/assets/media-kit/logos/logo-marks/png/algorand_logo_mark_black.png",
+    "https://dmove.app":
+      "https://pbs.twimg.com/profile_images/1789094127331880962/FsmlJYoK_400x400.jpg",
+    "https://suiscan.xyz/testnet/home":
+      "https://public.rootdata.com/images/p1580/1678796941987.jpeg",
   };
 
   const isValidURL = (string) => {
