@@ -108,43 +108,48 @@ export const Walnet = () => {
   };
 
   const handleFormSubmit = async function (e) {
-    e.preventDefault();
-    const target = e.target;
-    const file = target["uploadFile"].files[0];
-    const epochs = target["epochs"].value || 1;
-
-    if (!file) {
-      return;
+    try {
+      e.preventDefault();
+      const target = e.target;
+      const file = target["uploadFile"].files[0];
+      const epochs = 0;
+  
+      if (!file) {
+        return;
+      }
+  
+      setIsPublishing(true);
+      const blobInfo = await WalnetUtils.uploadBlob(file, epochs);
+      console.log(blobInfo);
+      const objectDetails = await WalnetUtils.getSuiObject(blobInfo.suiRef);
+  
+      const suiObject = {
+        id: objectDetails.data.objectId,
+        blobId: objectDetails.data.content.fields.blob_id,
+        fileType: objectDetails.data.content.type,
+        size: objectDetails.data.content.fields.size, // kích thước tính bằng byte
+        certifiedEpoch: objectDetails.data.content.fields.certified_epoch,
+        storedEpoch: objectDetails.data.content.fields.stored_epoch,
+        blobData: null,
+      };
+  
+      let _suiObjects = suiObjects;
+  
+      if (!_suiObjects) _suiObjects = [suiObject];
+      else {
+        _suiObjects.push(suiObject);
+        BrowserStorageUtils.setItem("objs", _suiObjects);
+      }
+  
+      setSuiObjects(suiObjects ? [...suiObjects, suiObject] : [suiObject]);
+      setDataPreviewImage(suiObject);
+      setNavToUploadFile(false);
+      setIsPublishing(false);
+      setObjectIdSelected(suiObject.id);
+      clearSearch();
+    } catch (error) {
+      console.log(error); 
     }
-
-    setIsPublishing(true);
-    const blobInfo = await WalnetUtils.uploadBlob(file, epochs);
-    const objectDetails = await WalnetUtils.getSuiObject(blobInfo.suiRef);
-
-    const suiObject = {
-      id: objectDetails.data.objectId,
-      blobId: objectDetails.data.content.fields.blob_id,
-      fileType: objectDetails.data.content.type,
-      size: objectDetails.data.content.fields.size, // kích thước tính bằng byte
-      certifiedEpoch: objectDetails.data.content.fields.certified_epoch,
-      storedEpoch: objectDetails.data.content.fields.stored_epoch,
-      blobData: null,
-    };
-
-    let _suiObjects = suiObjects;
-
-    if (!_suiObjects) _suiObjects = [suiObject];
-    else {
-      _suiObjects.push(suiObject);
-      BrowserStorageUtils.setItem("objs", _suiObjects);
-    }
-
-    setSuiObjects(suiObjects ? [...suiObjects, suiObject] : [suiObject]);
-    setDataPreviewImage(suiObject);
-    setNavToUploadFile(false);
-    setIsPublishing(false);
-    setObjectIdSelected(suiObject.id);
-    clearSearch();
   };
 
   const renderableData =
@@ -428,16 +433,16 @@ export const Walnet = () => {
                   </label>
                 </div>
 
-                <label htmlFor="epochs" className="mb-2">
+                {/* <label htmlFor="epochs" className="mb-2">
                   Choose epochs :
-                </label>
-                <input
+                </label> */}
+                {/* <input
                   id="epochs"
                   className="input-epochs dark:placeholder-white/50 w-[150px]"
                   placeholder="Enter epochs"
                   name="epochs"
                   type="number"
-                />
+                /> */}
 
                 <button
                   className="tile thin-blue cursor-pointer bg-red-500"

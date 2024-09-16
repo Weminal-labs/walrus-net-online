@@ -69,7 +69,7 @@ export const WalnetUtils = {
   async uploadBlob(inputFile, numEpochs) {
     try {
       const response = await axios.put(
-        `${WALRUS_PUBLISHER_ENDPOINT}/${VERSION}/store?epochs=${numEpochs}`,
+        `${WALRUS_PUBLISHER_ENDPOINT}/${VERSION}/store`,
         inputFile
       );
       const data = response.data;
